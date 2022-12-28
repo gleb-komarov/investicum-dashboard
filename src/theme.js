@@ -120,10 +120,9 @@ export const tokens = (mode) => ({
         }),
 });
 
-//mui theme settings
+// mui theme settings
 export const themeSettings = (mode) => {
     const colors = tokens(mode);
-
     return {
         palette: {
             mode: mode,
@@ -189,26 +188,28 @@ export const themeSettings = (mode) => {
             h6: {
                 fontFamily: ["Montserrat", "sans-serif"].join(","),
                 fontSize: 14,
-            }
-        }
+            },
+        },
     };
 };
 
-
 // context for color mode
 export const ColorModeContext = createContext({
-    toggleColorMode: () => {}
+    toggleColorMode: () => {},
 });
 
 export const useMode = () => {
     const [mode, setMode] = useState("dark");
+
     const colorMode = useMemo(
         () => ({
-            toggleColorMode: () =>
-                setMode((prev) => (prev === "light" ? "dark" : "light"))
-        }), []
+            toggleColorMode: () => {
+                setMode((prev) => (prev === "light" ? "dark" : "light"));
+            }
+        }),
+        []
     );
 
     const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
     return [theme, colorMode];
-}
+};
