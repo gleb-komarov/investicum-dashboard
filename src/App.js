@@ -4,20 +4,25 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
+import Statistic from "./scenes/statistic"
+import {useState} from "react";
 
 function App() {
   const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
 
   return (
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline/>
           <div className="app">
+            <Sidebar isSidebar={isSidebar}/>
             <main className="content">
               <Topbar/>
-                <Routes>
+              <Routes>
                     <Route path="/" element={ <Dashboard/> }/>
-                </Routes>
+                    <Route path="statistic" element={ <Statistic/> }/>
+              </Routes>
             </main>
           </div>
         </ThemeProvider>

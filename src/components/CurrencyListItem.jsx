@@ -7,8 +7,8 @@ const CurrencyListItem = ({title, total, diff}) => {
     const colors = tokens(theme.palette.mode)
 
     return (
-        <Box width="100%" m="0 20px" borderRadius="10px">
-            <Box display="flex">
+        <Box width="100%" m="0 20px">
+            <Box display="flex" justifyContent="space-between">
                 <Typography
                     variant="h4"
                     fontWeight="500"
@@ -17,7 +17,7 @@ const CurrencyListItem = ({title, total, diff}) => {
                     {title}
                 </Typography>
             </Box>
-            <Box display="flex" justifyContent="spaceBetween" alignItems="center">
+            <Box display="flex" justifyContent="space-between" mt="10px" alignItems="center">
                 <Typography
                     variant="h3"
                     fontWeight="600"
