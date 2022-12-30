@@ -4,6 +4,7 @@ import { tokens } from "../../theme"
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import CurrencyListItem from "../../components/CurrencyListItem";
 import PieChart from "../../components/PieChart";
+import LineChart from "../../components/LineChart";
 
 const Dashboard = () => {
     const theme = useTheme();
@@ -82,7 +83,32 @@ const Dashboard = () => {
                     </Button>
                 </Box>
             </Box>
-            <PieChart/>
+
+            {/*ROW 2*/}
+            <Box
+                gridColumn="span 8"
+                gridRow="span 2"
+                backgroundColor={colors.primary[400]}
+            >
+                <Box
+                    mt="25px"
+                    p="0 30px"
+                    display="flex"
+                    justifyContant="space-between"
+                    alignItems="center"
+                >
+                    <Typography
+                        variant="h5"
+                        fontWeight="600"
+                        color={colors.grey[100]}
+                    >
+                        Total profit, USD
+                    </Typography>
+                </Box>
+                <Box height="250px" m="-20px">
+                    <LineChart/>
+                </Box>
+            </Box>
         </Box>
     );
 };
