@@ -421,7 +421,7 @@ export const mockPieData = [
 export const mockLineData = [
     {
         id: "bitcoin",
-        color: "hsl(32, 100%, 49%)",
+        color: "#7000E0",
         data: [
             {
                 x: "April 18",

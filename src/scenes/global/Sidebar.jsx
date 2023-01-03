@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ProSidebar, Menu, MenuItem, SidebarFooter, SidebarContent} from "react-pro-sidebar";
 import 'react-pro-sidebar/dist/css/styles.css';
-import {Avatar, Box, Button, Icon, IconButton, SvgIcon, Typography, useTheme} from "@mui/material";
+import {Box, Typography, useTheme} from "@mui/material";
 import { Link } from 'react-router-dom';
 import { tokens } from '../../theme'
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
@@ -136,16 +136,20 @@ const Sidebar = () => {
                     </Menu>
                 </SidebarContent>
                 <SidebarFooter>
-                    <Menu>
-                        <MenuItem>
-                            <Item
-                                title={`Download app`}
-                                to="/download-mobile-app"
-                                icon={<FileDownloadOutlinedIcon/>}
-                                selected={selected}
-                                setSelected={setSelected}
-                            />
-                        </MenuItem>
+                    <Menu iconShape="square">
+                            <Box
+                                paddingLeft={isCollapsed ? undefined : "10%"}
+                                justifyContent="spaceBetween"
+                                alignItems="center"
+                            >
+                                <Item
+                                    title={`Download app`}
+                                    to="/download-mobile-app"
+                                    icon={<FileDownloadOutlinedIcon/>}
+                                    selected={selected}
+                                    setSelected={setSelected}
+                                />
+                            </Box>
                     </Menu>
                 </SidebarFooter>
             </ProSidebar>

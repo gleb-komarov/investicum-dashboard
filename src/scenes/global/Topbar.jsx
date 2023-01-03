@@ -69,9 +69,8 @@ const Topbar = () => {
                 </IconButton>
                 <Box marginLeft={4}>
                     <Button
-                        color="secondary"
+                        sx={{ color: colors.blueAccent[600] }}
                         size="large"
-                        variant="text"
                         startIcon={<Avatar src="https://mui.com/static/images/avatar/1.jpg">G</Avatar>}
                         endIcon={ <KeyboardArrowDownOutlinedIcon/> }
                         aria-controls={open ? 'basic-menu' : undefined}

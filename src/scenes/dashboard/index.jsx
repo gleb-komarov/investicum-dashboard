@@ -82,32 +82,60 @@ const Dashboard = () => {
                         Add new card
                     </Button>
                 </Box>
-            </Box>
 
-            {/*ROW 2*/}
-            <Box
-                gridColumn="span 8"
-                gridRow="span 2"
-                backgroundColor={colors.primary[400]}
-            >
+                {/*ROW 2*/}
                 <Box
-                    mt="25px"
-                    p="0 30px"
-                    display="flex"
-                    justifyContant="space-between"
-                    alignItems="center"
+                    gridColumn="span 8"
+                    gridRow="span 3"
+                    backgroundColor={colors.primary[400]}
+                    borderRadius="10px"
                 >
-                    <Typography
-                        variant="h5"
-                        fontWeight="600"
-                        color={colors.grey[100]}
+                    <Box
+                        mt="25px"
+                        p="0 30px"
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
                     >
-                        Total profit, USD
-                    </Typography>
+                        <Typography
+                            variant="h5"
+                            fontWeight="600"
+                            color={colors.grey[100]}
+                        >
+                            Total profit, USD
+                        </Typography>
+                    </Box>
+                    <Box height="350px">
+                        <LineChart/>
+                    </Box>
                 </Box>
-                <Box height="250px" m="-20px">
-                    <LineChart/>
+
+                <Box
+                    gridColumn="span 4"
+                    gridRow="span 3"
+                    backgroundColor={colors.primary[400]}
+                    borderRadius="10px"
+                >
+                    <Box
+                        mt="25px"
+                        p="0 30px"
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                    >
+                        <Typography
+                            variant="h5"
+                            fontWeight="600"
+                            color={colors.grey[100]}
+                        >
+                            Your invest portfolio
+                        </Typography>
+                    </Box>
+                    <Box height="350px">
+                        <PieChart/>
+                    </Box>
                 </Box>
+
             </Box>
         </Box>
     );

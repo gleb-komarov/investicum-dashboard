@@ -52,6 +52,7 @@ const PieChart = () => {
             arcLinkLabelsThickness={2}
             arcLinkLabelsColor={{ from: 'color' }}
             enableArcLabels={false}
+            arcLinkLabel={d => `14252353`}
             arcLabel={function(e){return e.id+" ("+e.value+")"}}
             arcLabelsRadiusOffset={0}
             arcLabelsTextColor={{

@@ -3,9 +3,9 @@ import { ResponsiveLine } from "@nivo/line";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
 import { mockLineData } from "../data/mockData";
-import {linearGradientDef} from "@nivo/core";
+import { linearGradientDef } from "@nivo/core";
 
-const LineChart = () => {
+const LineChart = ({ isDashboard = false }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode)
 
@@ -40,14 +40,12 @@ const LineChart = () => {
                     }
                 }
             }}
+            colors={{ datum: 'color' }}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
             xScale={{ type: 'point' }}
             yScale={{
                 type: 'linear',
-                min: 'auto',
-                max: 'auto',
-                stacked: true,
-                reverse: false
+                stacked: true
             }}
             yFormat=" >-.2f"
             curve="cardinal"
@@ -88,6 +86,8 @@ const LineChart = () => {
             enableCrosshair={false}
             useMesh={true}
             legends={[]}
+            enableArea={true}
+
         />
     );
 };
