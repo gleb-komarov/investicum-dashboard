@@ -1,7 +1,7 @@
 import React from 'react';
-import { ResponsivePie } from "@nivo/pie";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
+import { ResponsivePie } from "@nivo/pie";
 import { mockPieData } from "../data/mockData";
 
 const PieChart = () => {

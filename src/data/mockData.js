@@ -1,5 +1,3 @@
-import { tokens } from "../theme";
-
 export const mockDataTeam = [
     {
         id: 1,
@@ -264,6 +262,62 @@ export const mockDataInvoices = [
         phone: "(222)444-5555",
         date: "05/02/2021",
     },
+    {
+        id: 9,
+        name: "Ever Melisandre",
+        email: "evermelisandre@gmail.com",
+        cost: "63.12",
+        phone: "(232)545-6483",
+        date: "11/02/2022",
+    },
+    {
+        id: 10,
+        name: "Ferrara Clifford",
+        email: "ferraraclifford@gmail.com",
+        cost: "52.42",
+        phone: "(543)124-0123",
+        date: "02/11/2022",
+    },
+    {
+        id: 11,
+        name: "Rossini Frances",
+        email: "rossinifrances@gmail.com",
+        cost: "21.24",
+        phone: "(222)444-5555",
+        date: "05/02/2021",
+    },
+    {
+        id: 12,
+        name: "Jon Snow",
+        email: "jonsnow@gmail.com",
+        cost: "21.24",
+        phone: "(665)121-5454",
+        date: "03/12/2022",
+    },
+    {
+        id: 13,
+        name: "Cersei Lannister",
+        email: "cerseilannister@gmail.com",
+        cost: "1.24",
+        phone: "(421)314-2288",
+        date: "06/15/2021",
+    },
+    {
+        id: 14,
+        name: "Jaime Lannister",
+        email: "jaimelannister@gmail.com",
+        cost: "11.24",
+        phone: "(422)982-6739",
+        date: "05/02/2022",
+    },
+    {
+        id: 15,
+        name: "Anya Stark",
+        email: "anyastark@gmail.com",
+        cost: "80.55",
+        phone: "(921)425-6742",
+        date: "03/21/2022",
+    },
 ];
 
 export const mockTransactions = [
@@ -314,6 +368,54 @@ export const mockTransactions = [
         user: "jackdower",
         date: "2022-04-01",
         cost: "133.45",
+    },
+    {
+        txId: "0215dssd",
+        user: "booldozer",
+        date: "2022-04-02",
+        cost: "130.2",
+    },
+    {
+        txId: "2215fkjd",
+        user: "machineers",
+        date: "2022-04-15",
+        cost: "99.8",
+    },
+    {
+        txId: "0a123sb",
+        user: "stevebower",
+        date: "2022-11-02",
+        cost: "13.55",
+    },
+    {
+        txId: "01e4dsa",
+        user: "aberdohnny",
+        date: "2021-09-01",
+        cost: "43.95",
+    },
+    {
+        txId: "120s51a",
+        user: "wootzifer",
+        date: "2019-04-15",
+        cost: "24.20",
+    },
+    {
+        txId: "0315dsaa",
+        user: "jackdower",
+        date: "2022-04-01",
+        cost: "133.45",
+    },
+    {
+        txId: "0215dssd",
+        user: "booldozer",
+        date: "2022-04-02",
+        cost: "130.2",
+    },
+    {
+        txId: "2215fkjd",
+        user: "machineers",
+        date: "2022-04-15",
+        cost: "99.8",
     },
 ];
 

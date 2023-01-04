@@ -5,6 +5,7 @@ import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Statistic from "./scenes/statistic"
+import Documents from "./scenes/documents"
 import {useState} from "react";
 
 function App() {
@@ -18,10 +19,11 @@ function App() {
           <div className="app">
             <Sidebar isSidebar={isSidebar}/>
             <main className="content">
-              <Topbar/>
+              <Topbar setIsSidebar={setIsSidebar}/>
               <Routes>
                     <Route path="/" element={ <Dashboard/> }/>
                     <Route path="statistic" element={ <Statistic/> }/>
+                    <Route path="documents" element={ <Documents/> }/>
               </Routes>
             </main>
           </div>

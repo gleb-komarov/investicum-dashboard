@@ -1,8 +1,8 @@
 import React from 'react';
-import { ResponsiveLine } from "@nivo/line";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
 import { mockLineData } from "../data/mockData";
+import { ResponsiveLine } from "@nivo/line";
 import { linearGradientDef } from "@nivo/core";
 
 const LineChart = ({ isDashboard = false }) => {
@@ -48,7 +48,7 @@ const LineChart = ({ isDashboard = false }) => {
                 stacked: true
             }}
             yFormat=" >-.2f"
-            curve="cardinal"
+            curve='cardinal'
             axisTop={null}
             axisRight={null}
             axisBottom={{
