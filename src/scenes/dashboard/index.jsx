@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Button, Typography, useTheme} from "@mui/material";
+import React, {useEffect, useState} from 'react';
+import {Box, Button, Typography, useTheme} from "@mui/material";
 import { tokens } from "../../theme"
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import { mockDataInvoices, mockTransactions } from "../../data/mockData";
@@ -7,10 +7,30 @@ import CurrencyListItem from "../../components/CurrencyListItem";
 import PieChart from "../../components/PieChart";
 import LineChart from "../../components/LineChart";
 import DataTable from "../../components/DataTable";
+import ApiService from "../../services/ApiService";
+import SkeletonCurrencyListItem from "../../components/SkeletonCurrencyListItem";
 
 const Dashboard = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+
+    const [assetsCurrency, setAssetsCurrency] = useState([])
+    const [isAssetsLoading, setIsAssetsLoading] = useState(false)
+
+    useEffect( () => {
+        fetchAssetsCurrency()
+    }, [])
+
+    async function fetchAssetsCurrency() {
+        setIsAssetsLoading(true)
+        setTimeout( async () => {
+            const response = await ApiService.getAllAssetsCurrency()
+            console.log(response.data.data)
+            setAssetsCurrency(response.data.data)
+            setIsAssetsLoading(false)
+        }, 5000)
+
+    }
 
     const columns = [
         { field: "id", headerName: "ID"},
@@ -26,72 +46,77 @@ const Dashboard = () => {
             <Box
                 display="grid"
                 gridTemplateColumns="repeat(12, 1fr)"
-                gridAutoRows="130px"
+                gridAutoRows="128px"
                 gap="20px"
             >
+                <Box
+                    overflow="auto"
+                    display="grid"
+                    gridTemplateColumns="repeat(12, 1fr)"
+                    gridAutoRows="128px"
+                    gap="20px"
+                    sx={{
+                        gridColumn: "span 12"
+                    }}
+                >
+                    {
+                        isAssetsLoading ? (
+                                <Box
+                                    sx={{
+                                        gridColumn: "span 2",
+                                        background: colors.primary[400],
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        borderRadius: "20px",
+                                        '&:hover': {
+                                            background: colors.blueAccent[800]
+                                        },
+                                        cursor: "pointer"
+                                    }}
+                                >
+                                    <SkeletonCurrencyListItem/>
+                                </Box>
+                            )
+                            :
+                            assetsCurrency.map((asset, index) =>
+                                <Box
+                                    key={asset.id}
+
+                                    sx={{
+                                        gridColumn: "span 2",
+                                        background: colors.primary[400],
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        borderRadius: "20px",
+                                        '&:hover': {
+                                            background: colors.blueAccent[800]
+                                        },
+                                        cursor: "pointer"
+                                    }}
+                                >
+                                    <CurrencyListItem assetCurrency={asset}/>
+                                </Box>
+                            )
+                    }
+
+                    <Box
+                        sx={{
+                            gridColumn: "span 2",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: "20px",
+                            border: "2px dashed #C2BBC8"
+                        }}
+                    >
+                        <Button fullWidth startIcon={ <AddCircleOutlineOutlinedIcon/> } sx={{ color: colors.grey[100], height: "100%", borderRadius: "20px"}}>
+                            Add new card
+                        </Button>
+                    </Box>
+                </Box>
                 {/*ROW 1*/}
-                <Box
-                    sx={{
-                        gridColumn: "span 2",
-                        background: "linear-gradient(106.57deg, #A14EFF 0%, #5300A6 100%)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        borderRadius: "20px",
-                        '&:hover': {
-                            background: "linear-gradient(106.57deg,#5300A6 0%, #A14EFF 100%)"
-                        }
-                    }}
-                >
-                    <CurrencyListItem title="Bitcoin (BTC)" total="$39 853,80" diff="−673,10"/>
-                </Box>
-
-                <Box
-                    sx={{
-                        gridColumn: "span 2",
-                        background: "linear-gradient(106.57deg, #FFBA34 0%, #CF5700 100%)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        borderRadius: "20px",
-                        '&:hover': {
-                            background: "linear-gradient(106.57deg,#CF5700 0%, #FFBA34 100%)"
-                        }
-                    }}
-                >
-                    <CurrencyListItem title="S&P 500 Index" total="4 345,88" diff="−47,68"/>
-                </Box>
-
-                <Box
-                    sx={{
-                        gridColumn: "span 2",
-                        background: "linear-gradient(106.57deg, #44D2FF 0%, #007FB6 100%)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        borderRadius: "20px",
-                        '&:hover': {
-                            background: "linear-gradient(106.57deg,#007FB6 0%, #44D2FF 100%)"
-                        }
-                    }}
-                >
-                    <CurrencyListItem title="Ethereum (ETC)" total="$2 976,84" diff="−10,88"/>
-                </Box>
-
-                <Box
-                    sx={{
-                        gridColumn: "span 2",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        borderRadius: "20px",
-                        border: "2px dashed #C2BBC8"
-                    }}
-                >
-                    <Button fullWidth startIcon={ <AddCircleOutlineOutlinedIcon/> } sx={{ color: colors.grey[100], height: "100%", borderRadius: "20px"}}>
-                        Add new card
-                    </Button>
-                </Box>
 
                 {/*ROW 2*/}
                 <Box
