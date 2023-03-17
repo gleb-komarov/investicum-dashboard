@@ -28,7 +28,7 @@ const Dashboard = () => {
             console.log(response.data.data)
             setAssetsCurrency(response.data.data)
             setIsAssetsLoading(false)
-        }, 5000)
+        }, 1000)
 
     }
 
